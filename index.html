@@ -1,1 +1,34 @@
-<h1>Hello Trang !!!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Trang chủ</title>
+</head>
+<body>
+	<h1>Trang chủ</h1>
+	
+	<?php
+		// Xử lý các yêu cầu đến trang chủ
+		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			// Lấy danh sách truyện
+			$truyen = array(
+				array('id' => 1, 'name' => 'Truyện 1', 'author' => 'Tác giả 1', 'description' => 'Mô tả truyện 1'),
+				array('id' => 2, 'name' => 'Truyện 2', 'author' => 'Tác giả 2', 'description' => 'Mô tả truyện 2'),
+				array('id' => 3, 'name' => 'Truyện 3', 'author' => 'Tác giả 3', 'description' => 'Mô tả truyện 3'),
+				array('id' => 4, 'name' => 'Truyện 4', 'author' => 'Tác giả 4', 'description' => 'Mô tả truyện 4'),
+				array('id' => 5, 'name' => 'Truyện 5', 'author' => 'Tác giả 5', 'description' => 'Mô tả truyện 5')
+			);
+			
+			// Hiển thị danh sách truyện
+			foreach ($truyen as $item) {
+				echo "<div>";
+				echo "<h2>" . $item['name'] . "</h2>";
+				echo "<p>Tác giả: " . $item['author'] . "</p>";
+				echo "<p>" . $item['description'] . "</p>";
+				echo "<a href='truyen.php?id=" . $item['id'] . "'>Đọc truyện</a>";
+				echo "</div>";
+			}
+		}
+	?>
+</body>
+</html>
